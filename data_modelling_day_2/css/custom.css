@@ -1,0 +1,254 @@
+/* #1EC7A2
+ * #007aff
+ * #FF325D
+ */
+
+.reveal .slides section .fragment.highlight-current-green.current-fragment {
+  color: #000;
+}
+
+.reveal .slides section .fragment.highlight-current-red.current-fragment {
+  color: #FF325D;
+}
+
+.reveal .slides .many-to-many-dbtable table {
+  margin: 10px;
+} 
+
+.reveal .slides .model-layer, .reveal .slides .db-layer {
+  width: 500px;
+  height: 250px;
+  border: 2px solid black;
+  margin: 10px auto;
+}
+.reveal .slides .model-layer {
+  background-color: #1EC7A2;
+}
+
+.reveal .slides .db-layer {
+  background-color: #FF325D;
+}
+
+.reveal .slides .codesque {
+  text-transform: lowercase;
+  font-weight: 400;
+}
+
+.reveal .slides pre code.tall {
+  max-height: 650px;
+}
+
+.reveal pre code.cross-out:before, .reveal pre code.cross-out:after {
+    position: absolute;
+    content: '';
+    background: #FF325D;
+    display: block;
+    width: 110%;
+    height: 5px;
+    opacity: 0.8;
+    transform: rotate(-8deg) translateX(-5%) translateY(-25px);
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+}
+
+.reveal pre code.cross-out:after {
+  transform: rotate(8deg) translate(-5%, -25px);
+}
+
+.reveal .slides .foreign-key-tables table {
+  min-width: 375px;
+  margin: 15px;
+  font-size: 30px;
+}
+
+.reveal .slides .arrow-stem {
+  margin: auto;
+  width: 0; 
+  height: 15px; 
+  border-left: 7.5px solid black;
+  border-right: 7.5px solid black;
+}
+
+.reveal .slides .arrow-down {
+  width: 0; 
+  height: 0; 
+  border-left: 20px solid transparent;
+  border-right: 20px solid transparent;
+  border-top: 20px solid #000;
+  margin: 0 auto;
+}
+
+.reveal .slides .no-scroll-please {
+  max-height: none;
+}
+
+.reveal .slides img.larger {
+  width: 90%; 
+}
+
+.reveal .slides {
+  color: #fff;
+}
+
+.reveal .slides table{
+  border: 2px solid white;
+  color: white;
+  font-size: 26; 
+}
+
+.reveal .slides table th{
+  font-weight: 900;
+}
+
+.reveal .slides .top {
+  overflow: hidden;
+}
+
+.reveal .slides .dbtable.bottom {
+  float: none;
+}
+
+.reveal .slides .dbtable {
+  float: left;
+  margin: 0px 2px;
+}
+
+.reveal .slides .dbtable tr:nth-child(even) td{
+  background-color: #3A96FC;
+}
+
+.this_one {
+  color: black;
+}
+
+pre.side-by-side-code {
+  display: inline-block;
+  width: 475px;
+}
+
+
+.reveal .slides img {
+  border: 0;
+  box-shadow: none;
+}
+
+.reveal blockquote {
+  border: 0;
+  box-shadow: none;
+  width: 1000px;
+}
+
+.reveal .slides img.plogo {
+  width: 300px;
+  height: 300px;
+}
+
+.reveal .syntax pre {
+  background: #3f3f3f;
+  color: #dcdcdc;
+}
+
+.reveal .syntax pre .current-fragment {
+  font-weight: 900;
+}
+
+.reveal .slides pre {
+  border: 0;
+  box-shadow: none;
+}
+
+.reveal .simple-example pre  {
+  width: 500px;
+  margin: 0px;
+}
+.reveal .simple-example pre code {
+  max-height: 700px;
+}
+
+.reveal .simple-example {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.reveal .example pre {
+  width: 500px;
+  margin: 20px;
+}
+
+.reveal .example pre code {
+  max-height: 600px;
+
+}
+.reveal .example {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.bloopers .final {
+  display: inline-block;
+}
+
+.bloopers .blooper {
+  margin: 15px;
+}
+
+.reveal .otherstuff p {
+  font-size: 80%;
+  margin: 5px;
+}
+
+.reveal .stuff {
+  font-size: 90%;
+}
+.reveal .slides .left {
+  float: left;
+  display: inline-block;
+  width: 50%;
+}
+
+.reveal .slides .right {
+  display: inline-block;
+  width: 45%;
+  float: right;
+}
+.reveal .slides .clearfix {
+  clear: both;
+}
+
+.reveal .slides .clearfix .box{
+  border: 1px white solid;
+  padding: 2px;
+  margin-bottom: 10px;
+}
+
+.reveal .slides .secret_notes {
+  border: none;
+}
+
+.reveal .slides .secret_notes th, .reveal .slides .secret_notes td{
+  border: none;
+}
+
+.reveal .slides .secret_notes tr:nth-child(even) td{
+  background-color: inherit;
+}
+
+.hidden {
+  visibility: hidden;
+}
+.reveal .slides .instructorscohorts {
+  width: 1024px;
+}
+.reveal .slides .changed {
+  color: red;
+  border-color: red;
+}
+.reveal .slides .changed table{
+  color: red;
+  border-color: red;
+}

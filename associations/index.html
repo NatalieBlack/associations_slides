@@ -1,0 +1,1298 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/white.css">
+    <link rel="stylesheet" href="css/custom.css">
+    <link rel="stylesheet" href="lib/css/zenburn.css">
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+
+        <section data-background="#007aff">
+            <section>
+              <h3>Primary keys</h3>
+                <div class="dbtable">
+                  <p>products</p>
+                  <table>
+                    <tr>
+                      <th data-fragment-index="1" class="fragment highlight-current-red">id</th>
+                      <th>name</th>
+                    </tr>
+                    <tr>
+                      <td data-fragment-index="1" class="fragment highlight-current-red">1</td>
+                      <td>hat</td>
+                    </tr>
+                    <tr>
+                      <td data-fragment-index="1" class="fragment highlight-current-red">2</td>
+                      <td>jacket</td>
+                    </tr>
+                    <tr>
+                      <td data-fragment-index="1" class="fragment highlight-current-red">3</td>
+                      <td>boots</td>
+                    </tr>
+                    <tr>
+                      <td>...</td>
+                      <td>...</td>
+                    </tr>
+                    <tr>
+                      <td>...</td>
+                      <td>...</td>
+                    </tr>
+                  </table>
+
+                </div>
+            </section>
+
+            <section>
+              <h3>Foreign keys</h3>
+              <div class="foreign-key-tables top">
+                <div class="dbtable">
+                  <p>products</p>
+                  <table>
+                    <tr>
+                      <th>id</th>
+                      <th>name</th>
+                    </tr>
+                    <tr>
+                      <td data-fragment-index="1" class="fragment highlight-current-red">1</td>
+                      <td>hat</td>
+                    </tr>
+                    <tr>
+                      <td data-fragment-index="2" class="fragment highlight-current-red">2</td>
+                      <td>jacket</td>
+                    </tr>
+                    <tr>
+                      <td data-fragment-index="3" class="fragment highlight-current-red">3</td>
+                      <td>boots</td>
+                    </tr>
+                    <tr>
+                      <td>...</td>
+                      <td>...</td>
+                    </tr>
+                    <tr>
+                      <td>...</td>
+                      <td>...</td>
+                    </tr>
+                  </table>
+
+                </div>
+                <div class="dbtable">
+                  <p>reviews</p>
+                  <table>
+                    <tr>
+                      <th>id</th>
+                      <th>product_id</th>
+                      <th>comment</th>
+                    </tr>
+
+                    <tr>
+                      <td>1</td>
+                      <td data-fragment-index="1" class="fragment highlight-current-red">1</td>
+                      <td>Great!</td>
+                    </tr>
+
+                    <tr>
+                      <td>2</td>
+                      <td data-fragment-index="3" class="fragment highlight-current-red">3</td>
+                      <td>Leaky :(</td>
+                    </tr>
+
+                    <tr>
+                      <td>3</td>
+                      <td data-fragment-index="2" class="fragment highlight-current-red">2</td>
+                      <td>Super stylish.</td>
+                    </tr>
+
+                    <tr>
+                      <td>4</td>
+                      <td data-fragment-index="3" class="fragment highlight-current-red">3</td>
+                      <td>Funky fresh!</td>
+                    </tr>
+                    <tr>
+                      <td>...</td>
+                      <td>...</td>
+                      <td>...</td>
+                    </tr>
+                  </table>
+                </div>
+              </div>
+            </section>
+            <section class="instructorscohorts">
+              <h5>Join Tables</h5>
+              <div class="top">
+                <div class="dbtable">
+                  <p>instructors</p>
+                  <table>
+                  <tr>
+                    <th>id</th>
+                    <th>name</th>
+                    <th>etc...</th>
+                  </tr>
+                  <tr>
+                    <td><span class="fragment highlight-current-green" data-fragment-index="1">1</span></td>
+                    <td>Natalie</td>
+                    <td>...</td>
+                  </tr>
+                  <tr>
+                    <td><span>2</span></td>
+                    <td>Mina</td>
+                    <td>...</td>
+                  </tr>
+                  <tr>
+                    <td>3</td>
+                    <td>Gurjant</td>
+                    <td>...</td>
+                  </tr>
+                  <tr>
+                    <td>4</td>
+                    <td>Betty</td>
+                    <td>...</td>
+                  </tr>
+                  </table>
+              </div>
+                <div class="dbtable">
+                  <p>cohorts</p>
+                  <table>
+                  <tr>
+                    <th>id</th>
+                    <th>name</th>
+                    <th>start_month</th>
+                  </tr>
+                  <tr>
+                    <td><span class="fragment highlight-current-red" data-fragment-index="2">1</span></td>
+                    <td>Team GLaDOS</td>
+                    <td>March 2017</td>
+                  </tr>
+                  <tr>
+                    <td>2</td>
+                    <td>Team Gerty</td>
+                    <td>Oct 2016</td>
+                  </tr>
+                  <tr>
+                    <td>...</td>
+                    <td>...</td>
+                    <td>...</td>
+                  </tr>
+                  <tr>
+                    <td>5</td>
+                    <td>Team Hopper</td>
+                    <td>March 2016</td>
+                  </tr>
+                  </table>
+                </div>
+
+              <div class="dbtable ">
+                <p>cohorts_instructors</p>
+                <table>
+                <tr>
+                  <th>cohort_id</th>
+                  <th>instructor_id</th>
+                </tr>
+                <tr>
+                  <td><span class="fragment highlight-current-red" data-fragment-index="2">1</span></td>
+                  <td><span class="fragment highlight-current-green" data-fragment-index="1">1</span></td>
+                </tr>
+                <tr>
+                  <td><span class="fragment highlight-current-red" data-fragment-index="2">1<span></td>
+                  <td><span>2</span></td>
+                </tr>
+                <tr>
+                  <td><span class="fragment highlight-current-red" data-fragment-index="2">1<span></td>
+                  <td>3</td>
+                </tr>
+                <tr>
+                  <td>2</td>
+                  <td class="fragment highlight-current-green" data-fragment-index="1">1</td>
+                </tr>
+                <tr>
+                  <td>2</td>
+                  <td>2</td>
+                </tr>
+                <tr>
+                  <td>5</td>
+                  <td class="fragment highlight-current-green" data-fragment-index="1">1</td>
+                </tr>
+                <tr>
+                  <td>5</td>
+                  <td>2</td>
+                </tr>
+                <tr>
+                  <td>5</td>
+                  <td>4</td>
+                </tr>
+                </table>
+              </div>
+              </div>
+
+
+            </section>
+            <section class="playliststrackstables">
+              <h5>Join Tables</h5>
+              <div class="top">
+                <div class="dbtable">
+                  <p>instructors</p>
+                  <table>
+                  <tr>
+                    <th>id</th>
+                    <th>name</th>
+                    <th>etc...</th>
+                  </tr>
+                  <tr>
+                    <td><span class="fragment highlight-current-green" data-fragment-index="1">1</span></td>
+                    <td>Natalie</td>
+                    <td>...</td>
+                  </tr>
+                  <tr>
+                    <td><span>2</span></td>
+                    <td>Mina</td>
+                    <td>...</td>
+                  </tr>
+                  <tr>
+                    <td>3</td>
+                    <td>Gurjant</td>
+                    <td>...</td>
+                  </tr>
+                  <tr>
+                    <td>4</td>
+                    <td>Betty</td>
+                    <td>...</td>
+                  </tr>
+                  </table>
+              </div>
+                <div class="dbtable">
+                  <p>cohorts</p>
+                  <table>
+                  <tr>
+                    <th>id</th>
+                    <th>name</th>
+                    <th>start_month</th>
+                  </tr>
+                  <tr>
+                    <td><span class="fragment highlight-current-red" data-fragment-index="2">1</span></td>
+                    <td>Team GLaDOS</td>
+                    <td>March 2017</td>
+                  </tr>
+                  <tr>
+                    <td>...</td>
+                    <td>...</td>
+                    <td>...</td>
+                  </tr>
+                  <tr>
+                    <td>...</td>
+                    <td>...</td>
+                    <td>...</td>
+                  </tr>
+                  <tr>
+                    <td>6</td>
+                    <td>Team Gort</td>
+                    <td>Jan 2016</td>
+                  </tr>
+                  </table>
+                </div>
+
+              <div class="dbtable ">
+                <p>schedules</p>
+                <table>
+                <tr>
+                  <th>cohort_id</th>
+                  <th>instructor_id</th>
+                  <th>time_block</th>
+                </tr>
+                <tr>
+                  <td><span class="fragment highlight-current-red" data-fragment-index="2">1</span></td>
+                  <td><span class="fragment highlight-current-green" data-fragment-index="1">1</span></td>
+                  <td>morning & afternoon</td>
+                </tr>
+                <tr>
+                  <td><span class="fragment highlight-current-red" data-fragment-index="2">1<span></td>
+                  <td><span>2</span></td>
+                  <td>morning</td>
+                </tr>
+                <tr>
+                  <td><span class="fragment highlight-current-red" data-fragment-index="2">1<span></td>
+                  <td>3</td>
+                  <td>afternoon</td>
+                </tr>
+                <tr>
+                  <td>6</td>
+                  <td class="fragment highlight-current-green" data-fragment-index="1">1</td>
+                  <td>morning & afternoon & evening</td>
+                </tr>
+                <tr>
+                  <td>6</td>
+                  <td>2</td>
+                  <td>morning</td>
+                </tr>
+                </table>
+              </div>
+              </div>
+
+
+            </section>
+          </section>
+
+        <section data-background="#007aff">
+            <section>
+              <h3>One-to-Many</h3>
+              <img src="one_to_many.png" class="larger">
+            </section>
+
+
+            <section>
+              <h3>Many-to-Many</h3>
+              <img src="many_to_many.png" class="larger">
+            </section>
+
+            <section>
+              <h3>Many-to-Many</h3>
+               <img src="playlists_tracks.png" class="larger">
+            </section>
+
+
+            <section>
+              <h3>One-to-One</h3>
+              <img src="one_to_one.png" class="larger">
+            </section>
+        </section>
+
+
+        <section data-background="#007aff">
+            <section>
+              <h3>One-to-Many</h3>
+              <div class="foreign-key-tables top">
+                <div class="dbtable">
+                  <p>products</p>
+                  <table>
+                    <tr>
+                      <th>id</th>
+                      <th>name</th>
+                    </tr>
+                    <tr>
+                      <td>1</td>
+                      <td>hat</td>
+                    </tr>
+                    <tr>
+                      <td>2</td>
+                      <td>jacket</td>
+                    </tr>
+                    <tr>
+                      <td data-fragment-index="1" class="fragment highlight-current-red">3</td>
+                      <td>boots</td>
+                    </tr>
+                    <tr>
+                      <td>...</td>
+                      <td>...</td>
+                    </tr>
+                    <tr>
+                      <td>...</td>
+                      <td>...</td>
+                    </tr>
+                  </table>
+
+                </div>
+                <div class="dbtable">
+                  <p>reviews</p>
+                  <table>
+                    <tr>
+                      <th>id</th>
+                      <th>product_id</th>
+                      <th>comment</th>
+                    </tr>
+
+                    <tr>
+                      <td>1</td>
+                      <td>1</td>
+                      <td>Great!</td>
+                    </tr>
+
+                    <tr>
+                      <td>2</td>
+                      <td data-fragment-index="1" class="fragment highlight-current-red">3</td>
+                      <td>Leaky :(</td>
+                    </tr>
+
+                    <tr>
+                      <td>3</td>
+                      <td>2</td>
+                      <td>Super stylish.</td>
+                    </tr>
+
+                    <tr>
+                      <td>4</td>
+                      <td data-fragment-index="1" class="fragment highlight-current-red">3</td>
+                      <td>Funky fresh!</td>
+                    </tr>
+                    <tr>
+                      <td>...</td>
+                      <td>...</td>
+                      <td>...</td>
+                    </tr>
+                  </table>
+                </div>
+              </div>
+            </section>
+
+            <section>
+              <h3>Many-to-Many</h3>
+              <div class="many-to-many-dbtable top">
+                <div class="dbtable">
+                  <p>users</p>
+                  <table>
+                    <tr>
+                      <th>id</th>
+                      <th>name</th>
+                    </tr>
+
+                    <tr>
+                      <td><span class="fragment highlight-current-red" data-fragment-index="2">1</span></td> 
+                      <td>Mina</td> 
+                    </tr>
+
+                    <tr>
+                      <td class="fragment highlight-current-red" data-fragment-index="1"><span class="fragment highlight-current-red" data-fragment-index="2">2</span></td> 
+                      <td>Devon</td> 
+                    </tr>
+
+                    <tr>
+                      <td>3</td> 
+                      <td>Natalie</td> 
+                    </tr>
+
+                    <tr>
+                      <td> ...  </td>
+                      <td> ...  </td>
+                    </tr>
+                    <tr>
+                      <td> ...  </td>
+                      <td> ...  </td>
+                    </tr>
+                  </table>
+                </div>
+                <div class="dbtable">
+                  <p>reviews</p>
+                  <table>
+                    <tr>
+                      <th>id</th>
+                      <th>product_id</th>
+                      <th>user_id</th>
+                      <th>comment</th>
+                    </tr>
+
+                    <tr>
+                      <td>1</td>
+                      <td class="fragment highlight-current-green" data-fragment-index="1">1</td> 
+                      <td class="fragment highlight-current-red" data-fragment-index="1">2</td> 
+                      <td>Great!</td>
+                    </tr>
+
+                    <tr>
+                      <td>2</td>
+                      <td class="fragment highlight-current-green" data-fragment-index="1"><span class="fragment highlight-current-green" data-fragment-index="2">3</span></td> 
+                      <td class="fragment highlight-current-red" data-fragment-index="1"><span class="fragment highlight-current-red" data-fragment-index="2">2</span></td> 
+                      <td>Leaky :(</td>
+                    </tr>
+
+                    <tr>
+                      <td>3</td>
+                      <td>2</td>
+                      <td>3</td> 
+                      <td>Super stylish.</td>
+                    </tr>
+
+                    <tr>
+                      <td>4</td>
+                      <td><span class="fragment highlight-current-green" data-fragment-index="2">3</span></td>
+                      <td><span class="fragment highlight-current-red" data-fragment-index="2">1</span></td> 
+                      <td>Funky fresh!</td>
+                    </tr>
+                    <tr>
+                      <td>...</td>
+                      <td>...</td>
+                      <td>...</td>
+                      <td>...</td>
+                    </tr>
+                  </table>
+                  </div>
+                  <div class="dbtable">
+                  <p>products</p>
+                  <table>
+                    <tr>
+                      <th>id</th>
+                      <th>name</th>
+                    </tr>
+                    <tr>
+                      <td class="fragment highlight-current-green" data-fragment-index="1">1</td> 
+                      <td>hat</td>
+                    </tr>
+                    <tr>
+                      <td>2</td>
+                      <td>jacket</td>
+                    </tr>
+                    <tr>
+                      <td class="fragment highlight-current-green" data-fragment-index="1"><span class="fragment highlight-current-green" data-fragment-index="2">3</span></td> 
+                      <td>boots</td>
+                    </tr>
+                    <tr>
+                      <td>...</td>
+                      <td>...</td>
+                    </tr>
+                    <tr>
+                      <td>...</td>
+                      <td>...</td>
+                    </tr>
+                  </table>
+
+                </div>
+              </div>
+            </section>
+
+            <section>
+              <h3>One-to-One</h3>
+              <div class="dbtable">
+                <p>users</p>
+                <table>
+                  <tr>
+                    <th>id</th>
+                    <th>name</th>
+                    <th>email</th>
+                  </tr>
+                  <tr>
+                    <td><span class="fragment highlight-current-red" data-fragment-index="1">1</td>
+                    <td>Bell Hooks</td>
+                    <td>bhooks@gmail.com</td>
+                  </tr>
+                  <tr>
+                    <td><span class="fragment highlight-current-red" data-fragment-index="2">2</td>
+                    <td>Judith Butler</td>
+                    <td>judith.butler@gmail.com</td>
+                  </tr>
+                  <tr>
+                    <td><span class="fragment highlight-current-red" data-fragment-index="3">3</td>
+                    <td>Laverne Cox</td>
+                    <td>laverne@gmail.com</td>
+                  </tr>
+                </table>
+              </div>
+
+              <div class="dbtable">
+                <p>accounts</p>
+                <table>
+                  <tr>
+                    <th>id</th>
+                    <th>user_id</th>
+                    <th>account_number</th>
+                  </tr>
+                  <tr>
+                    <td>1</td>
+                    <td><span class="fragment highlight-current-red" data-fragment-index="2">2</td>
+                    <td>23432598</td>
+                  </tr>
+                  <tr>
+                    <td>4</td>
+                    <td><span class="fragment highlight-current-red" data-fragment-index="1">1</td>
+                    <td>43853493</td>
+                  </tr>
+                  <tr>
+                    <td>10</td>
+                    <td><span class="fragment highlight-current-red" data-fragment-index="3">3</td>
+                    <td>00483583</td>
+                  </tr>
+                </table>
+              </div>
+            </section>
+
+            <section class="clearfix">
+              <h2>Rules</h2>
+            <div class="left">
+              <div class="box">
+                <h3>One-to-Many</h3>
+                <ul>
+                  <li>foreign key on the "many side"</li>
+                </ul>
+              </div>
+
+            <div class="box">
+
+              <h3>One-to-One</h3>
+              <ul>
+                <li>same as one to many</li>
+                <li>foreign key on one of the two sides</li>
+              </ul>
+            </div>
+            </div>
+
+            <div class="right box">
+
+              <h3>Many-to-Many</h3>
+              <ul>
+                <li>join table</li> 
+                <li>i.e. a table with foreign keys for both things</li>
+                <li>could also have other columns</li>
+              </ul>
+            </div>
+            </section>
+          </section>
+        <section data-background="#007aff">
+            <section>
+              <h1>Associations</h1>
+            </section>
+
+            <section>
+              <p>An association is a way of informing our models about the relationships that exist in the database.</p>
+
+              <p>They make common operations simpler.</p>
+            </section>
+
+            <section>
+              <p>Without associations:</p>
+              <pre>
+                <code class="hljs">
+    @genre = Genre.find_by(name: "Hip Hop/Rap")
+    Track.where(genre_id: @genre.id)
+                </code>
+              </pre>
+
+              <p>With associations:</p>
+              <pre>
+                <code class="hljs">
+    @genre = Genre.find_by(name: "Hip Hop/Rap")
+    @genre.tracks
+                </code>
+              </pre>
+            </section>
+
+
+        </section>
+
+
+        <section data-background="#007aff">
+            <section>
+              <p>Associations <strong>inform</strong> our Rails models about the <strong>existing relationships</strong> in our database.</p>
+              <p>Adding associations to our models <strong>does not change</strong> the database.</p>
+            </section>
+
+            <section>
+              <div class="model-layer">
+                <h2>Models</h2>
+                <p>associations go here</p>
+              </div>
+              <div class="arrow-stem">
+              </div>
+              <div class="arrow-down">
+              </div>
+              <div class="db-layer">
+                <h2>Database</h2>
+                <p>foreign keys must already exist here</p>
+              </div>
+            </section>
+
+
+            <section>
+              <h3>One-to-Many</h3>
+              <img src="product_review.png" class="larger">
+              <pre class="side-by-side-code">
+                <code class="hljs">
+  class Product &lt; ActiveRecord::Base
+
+    has_many :reviews
+
+  end
+                </code>
+              </pre>
+
+              <pre class="side-by-side-code">
+                <code class="hljs">
+  class Review &lt; ActiveRecord::Base
+
+    belongs_to :product
+
+  end
+                </code>
+              </pre>
+            </section>
+
+            <section>
+              <h6>One-to-Many</h6>
+              <pre class="side-by-side-code">
+                <code class="hljs">
+  class Product &lt; ActiveRecord::Base
+
+    has_many :reviews
+
+  end
+                </code>
+              </pre>
+
+              <pre class="side-by-side-code">
+                <code class="hljs">
+  class Review &lt; ActiveRecord::Base
+
+    belongs_to :product
+
+  end
+                </code>
+              </pre>
+
+              <div class="">
+                <p>reviews</p>
+                <table>
+                  <tr>
+                    <th>id</th>
+                    <th><span class="this_one">product_id</span></th>
+                    <th>user_id</th>
+                    <th>comment</th>
+                  </tr>
+                  <tr>
+                    <td>1</td>
+                    <td>211</td>
+                    <td>1051</td>
+                    <td>I love it!</td>
+                  </tr>
+                  <tr>
+                    <td>2</td>
+                    <td>99</td>
+                    <td>47</td>
+                    <td>I hate it!</td>
+                  </tr>
+                  <tr>
+                    <td>3</td>
+                    <td>99</td>
+                    <td>80</td>
+                    <td>I hate it too!</td>
+                  </tr>
+                </table>
+              </div>
+            </section>
+
+            <section>
+              <h3>One-to-Many</h3>
+              <img src="user_review.png" class="larger">
+              <pre class="side-by-side-code">
+                <code class="hljs">
+  class User &lt; ActiveRecord::Base
+
+    has_many :reviews
+
+
+  end
+                </code>
+              </pre>
+
+              <pre class="side-by-side-code">
+                <code class="hljs">
+  class Review &lt; ActiveRecord::Base
+
+    belongs_to :product
+    belongs_to :user
+
+  end
+                </code>
+              </pre>
+            </section>
+
+            <section>
+              <h3>One-to-Many</h3>
+              <pre class="side-by-side-code">
+                <code class="hljs">
+  class User &lt; ActiveRecord::Base
+
+    has_many :reviews
+
+
+  end
+                </code>
+              </pre>
+
+              <pre class="side-by-side-code">
+                <code class="hljs">
+  class Review &lt; ActiveRecord::Base
+
+    belongs_to :product
+    belongs_to :user
+
+  end
+                </code>
+              </pre>
+
+              <p>reviews</p>
+              <table>
+                <tr>
+                  <th>id</th>
+                  <th>product_id</th>
+                  <th><span class="this_one">user_id</span></th>
+                  <th>comment</th>
+                </tr>
+                <tr>
+                  <td>1</td>
+                  <td>211</td>
+                  <td>1051</td>
+                  <td>I love it!</td>
+                </tr>
+                <tr>
+                  <td>2</td>
+                  <td>99</td>
+                  <td>47</td>
+                  <td>I hate it!</td>
+                </tr>
+                <tr>
+                  <td>4</td>
+                  <td>100</td>
+                  <td>47</td>
+                  <td>Excellent quality.</td>
+                </tr>
+              </table>
+            </section>
+
+
+          </section>
+
+          <section data-background="#007aff">
+            <section>
+              <h3>Many-to-Many</h3>
+               <img src="playlists_tracks.png" class="larger">
+            </section>
+
+            <section class="playliststrackstables">
+              <div class="top">
+                <div class="dbtable">
+                  <p>tracks</p>
+                  <table>
+                  <tr>
+                    <th>id</th>
+                    <th>name</th>
+                    <th>genre_id</th>
+                    <th>unit_price</th>
+                    <th>etc...</th>
+                  </tr>
+                  <tr>
+                    <td class="fragment highlight-current-green" data-fragment-index="2"><span class="fragment highlight-current-green" data-fragment-index="1">1</span></td>
+                    <td>Moonlight Sonata</td>
+                    <td>6</td>
+                    <td>0.99</td>
+                    <td>...</td>
+                  </tr>
+                  <tr>
+                    <td><span class="fragment highlight-current-green" data-fragment-index="1">2</span></td>
+                    <td>London Calling</td>
+                    <td>2</td>
+                    <td>0.99</td>
+                    <td>...</td>
+                  </tr>
+                  <tr>
+                    <td>3</td>
+                    <td>Formation</td>
+                    <td>1</td>
+                    <td>0.99</td>
+                    <td>...</td>
+                  </tr>
+                  <tr>
+                    <td>4</td>
+                    <td>Where Does the Good Go</td>
+                    <td>3</td>
+                    <td>1.99</td>
+                    <td>...</td>
+                  </tr>
+                  <tr>
+                    <td>5</td>
+                    <td>You're My Waterloo</td>
+                    <td>2</td>
+                    <td>0.99</td>
+                    <td>...</td>
+                  </tr>
+                  </table>
+              </div>
+                <div class="dbtable">
+                  <p>playlists</p>
+                  <table>
+                  <tr>
+                    <th>id</th>
+                    <th>name</th>
+                  </tr>
+                  <tr>
+                    <td class="fragment highlight-current-red" data-fragment-index="1"><span class="fragment highlight-current-red" data-fragment-index="2">1</span></td>
+                    <td>Summer jams</td>
+                  </tr>
+                  <tr>
+                    <td class="fragment highlight-current-red" data-fragment-index="2">2</td>
+                    <td>Songs for crying</td>
+                  </tr>
+                  <tr>
+                    <td>3</td>
+                    <td>Work playlist</td>
+                  </tr>
+                  <tr>
+                    <td>4</td>
+                    <td>Favourite songs</td>
+                  </tr>
+                  <tr>
+                    <td>5</td>
+                    <td>Sappy mixtape</td>
+                  </tr>
+                  </table>
+                </div>
+              </div>
+
+              <div class="dbtable bottom">
+                <p>playlists_tracks</p>
+                <table>
+                <tr>
+                  <th>playlist_id</th>
+                  <th>track_id</th>
+                </tr>
+                <tr>
+                  <td class="fragment highlight-current-red" data-fragment-index="1"><span class="fragment highlight-current-red" data-fragment-index="2">1</span></td>
+                  <td class="fragment highlight-current-green" data-fragment-index="2"><span class="fragment highlight-current-green" data-fragment-index="1">1</span></td>
+                </tr>
+                <tr>
+                  <td class="fragment highlight-current-red" data-fragment-index="1">1</td>
+                  <td><span class="fragment highlight-current-green" data-fragment-index="1">2</span></td>
+                </tr>
+                <tr>
+                  <td class="fragment highlight-current-red" data-fragment-index="2">2</td>
+                  <td class="fragment highlight-current-green" data-fragment-index="2">1</td>
+                </tr>
+                <tr>
+                  <td>2</td>
+                  <td>5</td>
+                </tr>
+                </table>
+              </div>
+
+            </section>
+
+            <section>
+              <pre>
+                <code class="hljs">
+  class Playlist &lt; ActiveRecord::Base
+
+    has_and_belongs_to_many :tracks
+
+  end
+
+  class Track &lt; ActiveRecord::Base
+
+    has_and_belongs_to_many :playlists
+
+  end
+                </code>
+              </pre>
+            </section>
+
+            <section>
+              <h3>Many-to-Many</h3>
+              <img src="many_to_many.png" class="larger">
+            </section>
+
+            <section>
+              <h3>Many-to-Many</h3>
+              <pre class="side-by-side-code">
+                <code class="hljs">
+  class Product &lt; ActiveRecord::Base
+
+    has_many :reviews
+
+
+  end
+                </code>
+              </pre>
+
+              <pre class="side-by-side-code">
+                <code class="hljs">
+  class Review &lt; ActiveRecord::Base
+
+    belongs_to :product
+    belongs_to :user
+
+  end
+                </code>
+              </pre>
+
+              <pre>
+                <code class="hljs">
+  class User &lt; ActiveRecord::Base
+
+    has_many :reviews
+    has_many :products, through: :reviews
+
+  end
+                </code>
+              </pre>
+            </section>
+
+            <section>
+              <pre><code>has_many :products, through: :reviews</code></pre>
+              <ol>
+                <li>Find reviews</li>
+                <li>Ask each review for its product</li>
+              </ol>
+            </section>
+            
+            <section>
+              <h5>Many-to-Many</h5>
+              <pre class="">
+                <code class="hljs no-scroll-please">
+  class Product &lt; ActiveRecord::Base
+
+    has_many :reviews
+    has_many :users, through: :reviews
+
+  end
+
+
+  class Review &lt; ActiveRecord::Base
+
+    belongs_to :product
+    belongs_to :user
+
+  end
+
+
+  class User &lt; ActiveRecord::Base
+
+    has_many :reviews
+    has_many :products, through: :reviews
+
+  end
+                </code>
+              </pre>
+            </section>
+
+            <section>
+              <pre><code>has_many :users, through: :reviews</code></pre>
+              <ol>
+                <li>Find reviews</li>
+                <li>Ask each review for its user</li>
+              </ol>
+            </section>
+          </section>
+
+          <section data-background="#007aff">
+            <section>
+              <h3>One-to-One</h3>
+              <img src="one_to_one.png" class="larger">
+              <pre class="side-by-side-code">
+                <code class="hljs">
+  class User &lt; ActiveRecord::Base
+
+    has_one :account
+
+  end
+                </code>
+              </pre>
+              <pre class="side-by-side-code">
+                <code class="hljs">
+  class Account &lt; ActiveRecord::Base
+
+    belongs_to :user
+
+  end
+                </code>
+              </pre>
+
+            </section>
+
+            <section>
+              <h3>One-to-One</h3>
+              <pre class="side-by-side-code">
+                <code class="hljs">
+  class User &lt; ActiveRecord::Base
+
+    has_one :account
+
+  end
+                </code>
+              </pre>
+              <pre class="side-by-side-code">
+                <code class="hljs">
+  class Account &lt; ActiveRecord::Base
+
+    belongs_to :user
+
+  end
+                </code>
+              </pre>
+              <p>accounts</p>
+              <table>
+                <tr>
+                  <th>id</th>
+                  <th><span class="this_one">user_id</span></th>
+                  <th>account_number</th>
+                </tr>
+                <tr>
+                  <td>1</td>
+                  <td>2</td>
+                  <td>23432598</td>
+                </tr>
+                <tr>
+                  <td>4</td>
+                  <td>1</td>
+                  <td>43853493</td>
+                </tr>
+                <tr>
+                  <td>10</td>
+                  <td>3</td>
+                  <td>00483583</td>
+                </tr>
+              </table>
+
+            </section>
+          </section>
+
+          <section data-background="#007aff">
+            <section>
+              <h3>One-to-many</h3>
+              <h2> <span class="codesque">has_one through</code></h2>
+              <img src="has_one_through_db.png" class="larger">
+            </section>
+
+            <section>
+              <div class="top">
+                <div class="dbtable">
+                  <p>users</p>
+                  <table>
+                    <tr>
+                      <th>id</th>
+                      <th>name</th>
+                      <th>email</th>
+                    </tr>
+                    <tr>
+                      <td>1</td>
+                      <td>Bell Hooks</td>
+                      <td>bhooks@gmail.com</td>
+                    </tr>
+                    <tr>
+                      <td>2</td>
+                      <td>Judith Butler</td>
+                      <td>Judith.Butler@gmail.com</td>
+                    </tr>
+                    <tr>
+                      <td>3</td>
+                      <td>Laverne Cox</td>
+                      <td>laverne@gmail.com</td>
+                    </tr>
+                  </table>
+                </div>
+
+                <div class="dbtable">
+                  <p>accounts</p>
+                  <table>
+                    <tr>
+                      <th>id</th>
+                      <th>user_id</th>
+                      <th>account_number</th>
+                    </tr>
+                    <tr>
+                      <td>1</td>
+                      <td>2</td>
+                      <td>23432598</td>
+                    </tr>
+                    <tr>
+                      <td>4</td>
+                      <td>1</td>
+                      <td>43853493</td>
+                    </tr>
+                    <tr>
+                      <td>10</td>
+                      <td>3</td>
+                      <td>00483583</td>
+                    </tr>
+                  </table>
+                </div>
+              </div>
+
+              <div class="dbtable bottom">
+                <p>purchases</p>
+                <table>
+                  <tr>
+                    <th>id</th>
+                    <th>account_id</th>
+                    <th>amount</th>
+                    <th>etc...</th>
+                  </tr>
+                  <tr>
+                    <td>9</td>
+                    <td>4</td>
+                    <td>25.50</td>
+                    <td>...</td>
+                  </tr>
+                  <tr>
+                    <td>10</td>
+                    <td>4</td>
+                    <td>250.00</td>
+                    <td>...</td>
+                  </tr>
+                  <tr>
+                    <td>11</td>
+                    <td>10</td>
+                    <td>10.99</td>
+                    <td>...</td>
+                  </tr>
+                </table>
+              </div>
+            </section>
+
+            <section>
+              <h4> <span class="codesque">has_one through</span></h4>
+              <pre><code class="hljs tall">
+  class Purchase &lt; ActiveRecord::Base
+
+    belongs_to :account
+    has_one :user, through: :account
+
+  end
+
+  class Account &lt; ActiveRecord::Base
+
+    belongs_to :user
+    ...
+
+  end
+
+  class User &lt; ActiveRecord::Base
+
+    ...
+
+
+  end
+                </code>
+              </pre>
+            </section>
+
+            <section>
+              <pre><code class="hljs cross-out">
+  belongs_to :user, through: :account
+                </code>
+              </pre>
+
+              <pre><code class="hljs">
+  has_one :user, through: :account
+                </code>
+              </pre>
+            </section>
+          </section>
+
+        </section>
+
+      </div>
+    </div>
+
+      <script src="lib/js/head.min.js"></script>
+      <script src="js/reveal.js"></script>
+      <script>
+        Reveal.initialize({
+          dependencies: [
+
+          { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+          { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+          // Zoom in and out with Alt+click
+          { src: 'plugin/zoom-js/zoom.js', async: true },
+          // Speaker notes
+          { src: 'plugin/notes/notes.js', async: true }
+
+          ]
+        });
+      </script>
+    </body>
+</html>
