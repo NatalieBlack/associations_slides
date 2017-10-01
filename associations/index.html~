@@ -844,92 +844,6 @@
               </table>
             </section>
 
-            <section>
-              <h3>Many-to-Many</h3>
-              <img src="many_to_many.png" class="larger">
-            </section>
-
-            <section>
-              <h3>Many-to-Many</h3>
-              <pre class="side-by-side-code">
-                <code class="hljs">
-  class Product &lt; ActiveRecord::Base
-
-    has_many :reviews
-
-
-  end
-                </code>
-              </pre>
-
-              <pre class="side-by-side-code">
-                <code class="hljs">
-  class Review &lt; ActiveRecord::Base
-
-    belongs_to :product
-    belongs_to :user
-
-  end
-                </code>
-              </pre>
-
-              <pre>
-                <code class="hljs">
-  class User &lt; ActiveRecord::Base
-
-    has_many :reviews
-    has_many :products, through: :reviews
-
-  end
-                </code>
-              </pre>
-            </section>
-
-            <section>
-              <pre><code>has_many :products, through: :reviews</code></pre>
-              <ol>
-                <li>Find reviews</li>
-                <li>Ask each review for its product</li>
-              </ol>
-            </section>
-            
-            <section>
-              <h5>Many-to-Many</h5>
-              <pre class="">
-                <code class="hljs no-scroll-please">
-  class Product &lt; ActiveRecord::Base
-
-    has_many :reviews
-    has_many :users, through: :reviews
-
-  end
-
-
-  class Review &lt; ActiveRecord::Base
-
-    belongs_to :product
-    belongs_to :user
-
-  end
-
-
-  class User &lt; ActiveRecord::Base
-
-    has_many :reviews
-    has_many :products, through: :reviews
-
-  end
-                </code>
-              </pre>
-            </section>
-
-            <section>
-              <pre><code>has_many :users, through: :reviews</code></pre>
-              <ol>
-                <li>Find reviews</li>
-                <li>Ask each review for its user</li>
-              </ol>
-            </section>
 
           </section>
 
@@ -1063,6 +977,105 @@
   end
                 </code>
               </pre>
+            </section>
+
+            <section>
+              <h3>Many-to-Many</h3>
+              <img src="many_to_many.png" class="larger">
+            </section>
+
+            <section>
+              <h3>Many-to-Many</h3>
+              <pre class="side-by-side-code">
+                <code class="hljs">
+  class Product &lt; ActiveRecord::Base
+
+    has_many :reviews
+
+
+  end
+                </code>
+              </pre>
+
+              <pre class="side-by-side-code">
+                <code class="hljs">
+  class Review &lt; ActiveRecord::Base
+
+    belongs_to :product
+    belongs_to :user
+
+  end
+                </code>
+              </pre>
+
+              <pre>
+                <code class="hljs">
+  class User &lt; ActiveRecord::Base
+
+    has_many :reviews
+    has_many :products, through: :reviews
+
+  end
+                </code>
+              </pre>
+            </section>
+
+            <section>
+              <pre><code>has_many :products, through: :reviews</code></pre>
+              <ol>
+                <li>Find reviews</li>
+                <li>Ask each review for its product</li>
+              </ol>
+            </section>
+
+            <section>
+            <img src="through_colours.png" class="larger">
+            </section>
+            
+            <section>
+              <h5>Many-to-Many</h5>
+              <pre class="">
+                <code class="hljs no-scroll-please">
+  class Product &lt; ActiveRecord::Base
+
+    has_many :reviews
+    has_many :users, through: :reviews
+
+  end
+
+
+  class Review &lt; ActiveRecord::Base
+
+    belongs_to :product
+    belongs_to :user
+
+  end
+
+
+  class User &lt; ActiveRecord::Base
+
+    has_many :reviews
+    has_many :products, through: :reviews
+
+  end
+                </code>
+              </pre>
+            </section>
+
+            <section>
+            <img src="through2_colours.png" class="larger">
+            </section>
+
+            <section>
+            <img src="through3_colours.png" class="larger">
+            </section>
+
+            <section>
+              <pre><code>has_many :users, through: :reviews</code></pre>
+              <ol>
+                <li>Find reviews</li>
+                <li>Ask each review for its user</li>
+              </ol>
             </section>
           </section>
 
