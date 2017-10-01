@@ -16,6 +16,10 @@
         </section>
         <section data-background="#007aff">
             <section>
+<h3>Databases!</h3>
+<p>Let's review what we know</p>
+            </section>
+            <section>
               <h3>Primary keys</h3>
                 <div class="dbtable">
                   <p>products</p>
@@ -287,13 +291,13 @@
                   </tr>
                   <tr>
                     <td><span class="fragment highlight-current-red" data-fragment-index="2">1</span></td>
-                    <td>Team Marvin</td>
-                    <td>June 2017</td>
+                    <td>Team Robo</td>
+                    <td>Sept 2017</td>
                   </tr>
                   <tr>
                     <td>2</td>
-                    <td>Team Gerty</td>
-                    <td>Oct 2016</td>
+                    <td>Team EDI</td>
+                    <td>July 2017</td>
                   </tr>
                   <tr>
                     <td>...</td>
@@ -302,8 +306,8 @@
                   </tr>
                   <tr>
                     <td>5</td>
-                    <td>Team Hopper</td>
-                    <td>March 2016</td>
+                    <td>Team Gort</td>
+                    <td>Jan 2016</td>
                   </tr>
                   </table>
                 </div>
@@ -396,8 +400,8 @@
                   </tr>
                   <tr>
                     <td><span class="fragment highlight-current-red" data-fragment-index="2">1</span></td>
-                    <td>Team Marvin</td>
-                    <td>June 2017</td>
+                    <td>Team Robo</td>
+                    <td>Sept 2017</td>
                   </tr>
                   <tr>
                     <td>...</td>
@@ -465,14 +469,93 @@
           </section>
 
         <section data-background="#007aff">
+
+            <section>
+              <h3>Types of Relationships</h3>
+              <ul>
+                <li>"one to many"</li>
+                <li>"many to many"</li>
+                <li>"one to one"</li>
+              </ul>
+            </section>
             <section>
               <h3>One-to-Many</h3>
-              <img src="one_to_many.png" class="larger">
+              <img src="one_many.png" class="larger">
             </section>
 
             <section>
               <h3>One-to-Many</h3>
-              <img src="one_many.png" class="larger">
+              <img src="user_tweets_1_m.png" class="larger">
+            </section>
+
+            <section>
+              <h3>One-to-Many</h3>
+              <img src="one_to_many.png" class="larger">
+            </section>
+            <section>
+              <h3>"How many reviews for a single user? Just 1 or maybe more than 1?"</h3>
+              <img src="user_question_mark.png" class="">
+            </section>
+
+            <section>
+              <img src="user_reviews_1_m.png" class="">
+            </section>
+
+            <section>
+              <h3>"How many users for a single review? Just 1 or maybe more than 1?"</h3>
+              <img src="review_question_mark.png" class="">
+            </section>
+
+            <section>
+              <img src="review_user_1_m.png" class="">
+            </section>
+
+            <section>
+              <img src="user_review_whole_picture_1.png" class="larger">
+            </section>
+            <section>
+              <img src="user_review_whole_picture_2.png" class="larger">
+            </section>
+            <section>
+              <img src="user_review_whole_picture_3.png" class="larger">
+              <p>many - one (AKA "one to many")</p>
+            </section>
+
+            <section>
+              <h3>Many-to-Many</h3>
+               <img src="playlists_tracks.png" class="larger">
+            </section>
+
+            <section>
+              <div>
+                 <img src="playlist_question_mark.png" class="">
+              </div>
+              <div>
+                 <img src="track_question_mark.png" class="">
+              </div>
+            </section>
+
+            <section>
+              <h3>Many-to-Many</h3>
+              <div>
+                 <img src="playlist_tracks_m_m.png" class="">
+              </div>
+              <div>
+                 <img src="track_playlists_m_m.png" class="">
+              </div>
+            </section>
+
+            <section>
+              <img src="track_playlist_whole_picture_1.png" class="larger">
+            </section>
+
+            <section>
+              <img src="track_playlist_whole_picture_2.png" class="larger">
+            </section>
+
+            <section>
+              <img src="track_playlist_whole_picture_3.png" class="larger">
+              <p>"many to many"</p>
             </section>
 
             <section>
@@ -481,8 +564,16 @@
             </section>
 
             <section>
-              <h3>Many-to-Many</h3>
-               <img src="playlists_tracks.png" class="larger">
+              <img src="user_product_whole_picture_1.png" class="larger">
+            </section>
+
+            <section>
+              <img src="user_product_whole_picture_2.png" class="larger">
+            </section>
+
+            <section>
+              <img src="user_product_whole_picture_3.png" class="larger">
+              <p>"many to many"</p>
             </section>
 
             <section>
@@ -808,7 +899,7 @@
                 <table>
                   <tr><th>id</th><th>source</th><th>source_year</th><th>name</th><th>personality</th></tr>
                   <tr><td>1</td><td>Portal</td><td>2007</td><td>GLaDOS</td><td>passive-agressive</td></tr>
-                  <tr><td>4</td><td>Star Wars</td><td>1977</td><td>C3PO</td><td>anxious</td></tr>
+                  <tr><td>4</td><td><b>Star Wars</b></td><td><b>1977</b></td><td>C3PO</td><td>anxious</td></tr>
                   <tr><td>6</td><td>Ex Machina</td><td>2014</td><td>Ava</td><td>clever</td></tr>
                   <tr><td>8</td><td>Star Wars</td><td>1977</td><td>R2D2</td><td>loyal</td></tr>
                 </table>
@@ -828,9 +919,9 @@
                 <table>
                   <tr><th>id</th><th>source</th><th>source_year</th><th>name</th><th>personality</th></tr>
                   <tr><td>1</td><td>Portal</td><td>2007</td><td>GLaDOS</td><td>passive-agressive</td></tr>
-                  <tr><td>4</td><td>Star Wars Series</td><td>1977</td><td>C3PO</td><td>anxious</td></tr>
+                  <tr><td>4</td><td><b>Star Wars Series</b></td><td>1977</td><td>C3PO</td><td>anxious</td></tr>
                   <tr><td>6</td><td>Ex Machina</td><td>2014</td><td>Ava</td><td>clever</td></tr>
-                  <tr><td>8</td><td>Star Wars Series</td><td>1977</td><td>R2D2</td><td>loyal</td></tr>
+                  <tr><td>8</td><td><b>Star Wars Series</b></td><td>1977</td><td>R2D2</td><td>loyal</td></tr>
                 </table>
             </section>
 
@@ -950,6 +1041,7 @@ SELECT * FROM board_games where category_id=300;
 
         <section data-background="#007aff">
             <section>
+                <h3>What would this look like in Ruby?</h3>
                   <p>contacts</p>
                   <table>
                     <tr>
@@ -2095,173 +2187,6 @@ Note.auto_upgrade!
 
         <section data-background="#007aff">
           <section data-background="#007aff">
-                <div class="dbtable">
-                  <p>quizzes</p>
-                  <table>
-                    <tr>
-                      <th>id</th>
-                      <th>title</th>
-                      <th>scheduled_at</th>
-                      <th>cohort_id</th>
-                    </tr>
-                    <tr>
-                      <td>...</td>
-                      <td>...</td>
-                      <td>...</td>
-                      <td>...</td>
-                    </tr>
-                  </table>
-                </div>
-                <div class="dbtable">
-                  <p>cohorts</p>
-                  <table>
-                    <tr>
-                      <th>id</th>
-                      <th>name</th>
-                      <th>start_date</th>
-                      <th>course_id</th>
-                    </tr>
-
-                    <tr>
-                      <td>...</td>
-                      <td>...</td>
-                      <td>...</td>
-                      <td>...</td>
-                    </tr>
-
-                  </table>
-                </div>
-                <div class="dbtable">
-                  <p>courses</p>
-                  <table>
-                    <tr>
-                      <th>id</th>
-                      <th>name</th>
-                      <th>part_time</th>
-                    </tr>
-
-                    <tr>
-                      <td>...</td>
-                      <td>...</td>
-                      <td>...</td>
-                    </tr>
-
-                  </table>
-                </div>
-
-                <div class="dbtable">
-                  <p>questions</p>
-                  <table>
-                    <tr>
-                      <th>id</th>
-                      <th>title</th>
-                      <th>description</th>
-                      <th>quiz_id</th>
-                    </tr>
-
-                    <tr>
-                      <td>...</td>
-                      <td>...</td>
-                      <td>...</td>
-                      <td>...</td>
-                    </tr>
-
-                  </table>
-                </div>
-                <div class="dbtable">
-                  <p>cohorts_students</p>
-                  <table>
-                    <tr>
-                      <th>student_id</th>
-                      <th>cohort_id</th>
-                    </tr>
-
-                    <tr>
-                      <td>...</td>
-                      <td>...</td>
-                    </tr>
-
-                  </table>
-                </div>
-                <div class="dbtable">
-                  <p>quiz_submissions</p>
-                  <table>
-                    <tr>
-                      <th>id</th>
-                      <th>student_id</th>
-                      <th>quiz_id</th>
-                      <th>score</th>
-                    </tr>
-
-                    <tr>
-                      <td>...</td>
-                      <td>...</td>
-                      <td>...</td>
-                      <td>...</td>
-                    </tr>
-
-                  </table>
-                </div>
-                <div class="dbtable">
-                  <p>students</p>
-                  <table>
-                    <tr>
-                      <th>id</th>
-                      <th>first_name</th>
-                      <th>last_name</th>
-                      <th>email</th>
-                    </tr>
-
-                    <tr>
-                      <td>...</td>
-                      <td>...</td>
-                      <td>...</td>
-                      <td>...</td>
-                    </tr>
-
-                  </table>
-                </div>
-                <div class="dbtable">
-                  <p>choices</p>
-                  <table>
-                    <tr>
-                      <th>id</th>
-                      <th>question_id</th>
-                      <th>text</th>
-                      <th>correct</th>
-                    </tr>
-
-                    <tr>
-                      <td>...</td>
-                      <td>...</td>
-                      <td>...</td>
-                      <td>...</td>
-                    </tr>
-
-                  </table>
-                </div>
-                <div class="dbtable">
-                  <p>choices_quiz_submissions</p>
-                  <table>
-                    <tr>
-                      <th>id</th>
-                      <th>quiz_submission_id</th>
-                      <th>choice_id</th>
-                    </tr>
-
-                    <tr>
-                      <td>...</td>
-                      <td>...</td>
-                      <td>...</td>
-                    </tr>
-
-                  </table>
-              </div>
-          </section>
-        </section>
-
-        <section data-background="#007aff">
-          <section data-background="#007aff">
             <h3>"self referential relationship"</h3>
             <p>social media friending</p>
             <img src="self_referential2.png" class="larger"/>
@@ -2545,40 +2470,6 @@ Note.auto_upgrade!
             </section>
         </section>
 
-        <section data-background="#007aff">
-          <section data-background="#007aff">
-            <h3>Making Decision About the Columns/Fields in your Tables</h3>
-            <ul>
-              <li>requirements</li>
-              <li>ethics &amp; inclusivity</li>
-            </ul>
-
-          </section>
-          <section data-background="#007aff">
-            <h3>Storing Personal Data</h3>
-            <ul>
-              <li>"Anyone producing, managing or sharing data that reflects on individuals has a responsibility to do so in a way that respects the rights and dignity of people reflected in the data"</li>
-              <li>"Collecting data about someone creates an inherent power imbalance to the extent that the data collector effectively owns a commodity relating intimately to an individual"</li>
-              <li>It's harder than you think to "deanonymize" data</li>
-            </ul>
-            <p>https://responsibledata.io/resources/handbook/</p>
-          </section>
-          <section data-background="#007aff">
-            <ul>
-              <li>"...we are familiar with the notion that data in the wrong hands can be dangerous, putting individuals at risk, but perhaps less aware that even in the right hands, there are violations that can arise from individuals being documented or categorised, leading to discrimination or exclusion."</li>
-              <li>"Even data that does not identify individuals can still reflect identities and behaviour of groups and communities. Managing this data responsibly can be just as important as data about individuals, especially when data about those groups (where they reside, how they identify, what they do) might exacerbate social tensions, support discriminatory policy or incite violence."</li>
-            </ul>
-            <p>https://responsibledata.io/resources/handbook/</p>
-
-          </section>
-          <section data-background="#007aff">
-            <h3>Advice</h3>
-            <ul>
-              <li>Ask WHY you need data, not just HOW to get more of it</li>
-              <li>Don't collection more personal data than you need to complete a task</li>
-            </ul>
-          </section>
-        </section>
       </div>
     </div>
 
