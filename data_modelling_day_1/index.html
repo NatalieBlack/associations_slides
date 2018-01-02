@@ -127,6 +127,50 @@
                 </div>
               </div>
             </section>
+            <section>
+<p>reviews</p>
+<table>
+                    <tr>
+                      <th>id</th>
+                      <th>product_id</th>
+                      <th>comment</th>
+                    </tr>
+
+                    <tr>
+                      <td>1</td>
+                      <td data-fragment-index="1" class="fragment highlight-current-red">1</td>
+                      <td>Great!</td>
+                    </tr>
+
+                    <tr>
+                      <td>2</td>
+                      <td data-fragment-index="3" class="fragment highlight-current-red">3</td>
+                      <td>Leaky :(</td>
+                    </tr>
+
+                    <tr>
+                      <td>3</td>
+                      <td data-fragment-index="2" class="fragment highlight-current-red">2</td>
+                      <td>Super stylish.</td>
+                    </tr>
+
+                    <tr>
+                      <td>4</td>
+                      <td data-fragment-index="3" class="fragment highlight-current-red">3</td>
+                      <td>Funky fresh!</td>
+                    </tr>
+                    <tr>
+                      <td>...</td>
+                      <td>...</td>
+                      <td>...</td>
+                    </tr>
+                  </table>
+              <pre>
+                <code class="hljs">
+SELECT * FROM reviews where product_id=3;
+                </code>
+              </pre>
+            </section>
             <section class="playliststrackstables">
               <h5>Join Tables</h5>
               <div class="top">
@@ -291,13 +335,13 @@
                   </tr>
                   <tr>
                     <td><span class="fragment highlight-current-red" data-fragment-index="2">1</span></td>
-                    <td>Team Robo</td>
-                    <td>Sept 2017</td>
+                    <td>Team Rosie</td>
+                    <td>Dec 2017</td>
                   </tr>
                   <tr>
                     <td>2</td>
-                    <td>Team EDI</td>
-                    <td>July 2017</td>
+                    <td>Team WALL-E</td>
+                    <td>Oct 2017</td>
                   </tr>
                   <tr>
                     <td>...</td>
@@ -400,8 +444,8 @@
                   </tr>
                   <tr>
                     <td><span class="fragment highlight-current-red" data-fragment-index="2">1</span></td>
-                    <td>Team Robo</td>
-                    <td>Sept 2017</td>
+                    <td>Team Rosie</td>
+                    <td>Dec 2017</td>
                   </tr>
                   <tr>
                     <td>...</td>
@@ -887,12 +931,18 @@
             </section>
 
             <section data-background="#007aff">
+                <p>robots</p>
+                <table>
+                  <tr><th>id</th><th>source</th><th>source_year</th><th>name</th><th>personality</th></tr>
+</table>
+            </section>
+            <section data-background="#007aff">
                 <h5>Are there multiple columns that always have to change together?</h5>
                 <p>robots v1</p>
                 <table>
                   <tr><th>id</th><th>source</th><th>source_year</th><th>name</th><th>personality</th></tr>
                   <tr><td>1</td><td>Portal</td><td>2007</td><td>GLaDOS</td><td>passive-agressive</td></tr>
-                  <tr><td>4</td><td>Star Wars: The Force Awakens</td><td>2015</td><td>C3PO</td><td>anxious</td></tr>
+                  <tr><td>4</td><td>Star Wars</td><td>1977</td><td>WALL-E</td><td>curious</td></tr>
                   <tr><td>6</td><td>Ex Machina</td><td>2014</td><td>Ava</td><td>clever</td></tr>
                   <tr><td>8</td><td>Star Wars</td><td>1977</td><td>R2D2</td><td>loyal</td></tr>
                 </table>
@@ -901,7 +951,7 @@
                 <table>
                   <tr><th>id</th><th>source</th><th>source_year</th><th>name</th><th>personality</th></tr>
                   <tr><td>1</td><td>Portal</td><td>2007</td><td>GLaDOS</td><td>passive-agressive</td></tr>
-                  <tr><td>4</td><td><b>Star Wars</b></td><td><b>1977</b></td><td>C3PO</td><td>anxious</td></tr>
+                  <tr><td>4</td><td><b>WALL-E</b></td><td><b>2008</b></td><td>WALL-E</td><td>curious</td></tr>
                   <tr><td>6</td><td>Ex Machina</td><td>2014</td><td>Ava</td><td>clever</td></tr>
                   <tr><td>8</td><td>Star Wars</td><td>1977</td><td>R2D2</td><td>loyal</td></tr>
                 </table>
@@ -935,13 +985,13 @@
                   <tr><td>1</td><td>200</td><td>GLaDOS</td><td>passive-agressive</td></tr>
                   <tr><td>4</td><td>101</td><td>C3PO</td><td>anxious</td></tr>
                   <tr><td>...</td><td>...</td><td>...</td><td>...</td></tr>
-                  <tr><td>6</td><td>100</td><td>Ava</td><td>clever</td></tr>
+                  <tr><td>6</td><td>100</td><td>WALL-E</td><td>curious</td></tr>
                 </table>
 
                 <p>sources</p>
                 <table>
                   <tr><th>id</th><th>title</th><th>medium</th><th>year</th></tr>
-                  <tr><td>100</td><td>Ex Machina</td><td>film</td><td>2014</td></tr>
+                  <tr><td>100</td><td>WALL-E</td><td>film</td><td>2008</td></tr>
                   <tr><td>101</td><td>Star Wars</td><td>film series</td><td>1977</td></tr>
                   <tr><td>...</td><td>...</td><td>...</td><td>...</td></tr>
                   <tr><td>200</td><td>Portal</td><td>video game series</td><td>2007</td></tr>
