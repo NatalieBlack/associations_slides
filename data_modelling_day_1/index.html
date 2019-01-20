@@ -315,7 +315,7 @@ SELECT * FROM reviews where product_id=3;
                   </tr>
                   <tr>
                     <td>3</td>
-                    <td>Harisree</td>
+                    <td>Josh</td>
                     <td>...</td>
                   </tr>
                   <tr>
@@ -335,8 +335,8 @@ SELECT * FROM reviews where product_id=3;
                   </tr>
                   <tr>
                     <td><span class="fragment highlight-current-red" data-fragment-index="2">1</span></td>
-                    <td>Team Rosie</td>
-                    <td>Dec 2017</td>
+                    <td>Team BB8</td>
+                    <td>Nov 2018</td>
                   </tr>
                   <tr>
                     <td>2</td>
@@ -349,7 +349,7 @@ SELECT * FROM reviews where product_id=3;
                     <td>...</td>
                   </tr>
                   <tr>
-                    <td>5</td>
+                    <td>6</td>
                     <td>Team Gort</td>
                     <td>Jan 2016</td>
                   </tr>
@@ -369,11 +369,7 @@ SELECT * FROM reviews where product_id=3;
                 </tr>
                 <tr>
                   <td><span class="fragment highlight-current-red" data-fragment-index="2">1<span></td>
-                  <td><span>2</span></td>
-                </tr>
-                <tr>
-                  <td><span class="fragment highlight-current-red" data-fragment-index="2">1<span></td>
-                  <td>3</td>
+                  <td><span>3</span></td>
                 </tr>
                 <tr>
                   <td>2</td>
@@ -384,15 +380,15 @@ SELECT * FROM reviews where product_id=3;
                   <td>2</td>
                 </tr>
                 <tr>
-                  <td>5</td>
+                  <td>6</td>
                   <td class="fragment highlight-current-green" data-fragment-index="1">1</td>
                 </tr>
                 <tr>
-                  <td>5</td>
+                  <td>6</td>
                   <td>2</td>
                 </tr>
                 <tr>
-                  <td>5</td>
+                  <td>6</td>
                   <td>4</td>
                 </tr>
                 </table>
@@ -424,7 +420,7 @@ SELECT * FROM reviews where product_id=3;
                   </tr>
                   <tr>
                     <td>3</td>
-                    <td>Harisree</td>
+                    <td>Josh</td>
                     <td>...</td>
                   </tr>
                   <tr>
@@ -444,8 +440,8 @@ SELECT * FROM reviews where product_id=3;
                   </tr>
                   <tr>
                     <td><span class="fragment highlight-current-red" data-fragment-index="2">1</span></td>
-                    <td>Team Rosie</td>
-                    <td>Dec 2017</td>
+                    <td>Team BB8</td>
+                    <td>Nov 2018</td>
                   </tr>
                   <tr>
                     <td>...</td>
@@ -479,12 +475,6 @@ SELECT * FROM reviews where product_id=3;
                   <td><span class="fragment highlight-current-red" data-fragment-index="2">1</span></td>
                   <td><span class="fragment highlight-current-green" data-fragment-index="1">1</span></td>
                   <td>morning & afternoon</td>
-                </tr>
-                <tr>
-                  <td>2</td>
-                  <td><span class="fragment highlight-current-red" data-fragment-index="2">1<span></td>
-                  <td><span>2</span></td>
-                  <td>morning</td>
                 </tr>
                 <tr>
                   <td>3</td>
@@ -727,7 +717,7 @@ SELECT * FROM reviews where product_id=3;
 
                     <tr>
                       <td><span class="fragment highlight-current-red" data-fragment-index="2">1</span></td> 
-                      <td>Mina</td> 
+                      <td>Betty</td> 
                     </tr>
 
                     <tr>
@@ -1111,7 +1101,7 @@ SELECT * FROM board_games where category_id=300;
 
         <section data-background="#007aff">
             <section>
-                <h3>What would this look like in Ruby?</h3>
+                <h3>What would this look like in Python?</h3>
                   <p>contacts</p>
                   <table>
                     <tr>
@@ -1159,9 +1149,9 @@ SELECT * FROM board_games where category_id=300;
                     </tr>
                     <tr>
                       <td>2</td>
-                      <td>Mina</td>
-                      <td>Mikhail</td>
-                      <td>mina@bitmakerlabs.com</td>
+                      <td>Betty</td>
+                      <td>Li</td>
+                      <td>betty@bitmakerlabs.com</td>
                     </tr>
                   </table>
                   <p>notes</p>
@@ -1187,7 +1177,7 @@ SELECT * FROM board_games where category_id=300;
                     <tr>
                       <td>3</td>
                       <td>2</td>
-                      <td>A note about Mina</td>
+                      <td>A note about Betty</td>
                       <td>2017-05-29</td>
                     </tr>
                   </table>
@@ -1196,408 +1186,35 @@ SELECT * FROM board_games where category_id=300;
             <section data-background="#007aff">
               <pre style="width:100%; height: 300px;">
                 <code class="hljs" style="height: 100%;">
-gem 'activerecord', '=4.2.7'
-require 'active_record'
-require 'mini_record'
+from peewee import SqliteDatabase, Model, CharField, TextField, ForeignKeyField
 
-ActiveRecord::Base.establish_connection(adapter: 'sqlite3', database: 'crm-web.sqlite3')
+db = SqliteDatabase('crm.db')
 
-class Contact < ActiveRecord::Base
+class Contact(Model):
+  first_name = CharField()
+  last_name = CharField()
+  email = CharField()
 
-  field :first_name, as: :string
-  field :last_name,  as: :string
-  field :email,      as: :string
+  class Meta:
+    database = db
 
-  def full_name
-    "#{ first_name } #{ last_name }"
-  end
+  def full_name(self):
+    return "{} {}".format(self.first_name, self.last_name)
 
-end                                                                    
+class Note(Model):
+  body = TextField()
+  contact = ForeignKeyField(Contact, backref='notes')
 
-                </code>
-              </pre>
-              <pre style="width:100%; height: 300px;">
-                <code class="hljs" style="height: 100%;">
-gem 'activerecord', '=4.2.7'
-require 'active_record'
-require 'mini_record'
-    
-ActiveRecord::Base.establish_connection(adapter: 'sqlite3', database: 'crm-web.sqlite3')
-    
-class Note < ActiveRecord::Base                                        
-                                                                       
-  field :contact_id, as: :integer                                      
-  field :body, as: :string                                             
-  field :written_at, as: :datetime                                     
-    
-end 
-    
-Note.auto_upgrade!
+  class Meta:
+    database = db
 
-                </code>
+db.connect()
+db.create_tables([Contact, Note])
+</code>
               </pre>
             </section>
 
           </section>
-<section data-background="#007aff">
-        <section>
-            <p>When should a join table have its own class?</p>
-            <ul>
-              <li>Is there a name/noun that describes this relationship?</li>
-              <li>Is there more information about this relationship?</li>
-              <li>Is there probably going to be more info about it in the future?</li>
-            </ul>
-
-          </section>
-            <section class="playliststrackstables">
-              <h5>Join Tables</h5>
-              <div class="top">
-                <div class="dbtable">
-                  <p>tracks</p>
-                  <table>
-                  <tr>
-                    <th>id</th>
-                    <th>name</th>
-                    <th>genre_id</th>
-                    <th>unit_price</th>
-                    <th>etc...</th>
-                  </tr>
-                  <tr>
-                    <td><span>1</span></td>
-                    <td>Moonlight Sonata</td>
-                    <td>6</td>
-                    <td>0.99</td>
-                    <td>...</td>
-                  </tr>
-                  <tr>
-                    <td><span>2</span></td>
-                    <td>London Calling</td>
-                    <td>2</td>
-                    <td>0.99</td>
-                    <td>...</td>
-                  </tr>
-                  <tr>
-                    <td>3</td>
-                    <td>Formation</td>
-                    <td>1</td>
-                    <td>0.99</td>
-                    <td>...</td>
-                  </tr>
-                  <tr>
-                    <td>4</td>
-                    <td>Where Does the Good Go</td>
-                    <td>3</td>
-                    <td>1.99</td>
-                    <td>...</td>
-                  </tr>
-                  <tr>
-                    <td>5</td>
-                    <td>You're My Waterloo</td>
-                    <td>2</td>
-                    <td>0.99</td>
-                    <td>...</td>
-                  </tr>
-                  </table>
-              </div>
-                <div class="dbtable">
-                  <p>playlists</p>
-                  <table>
-                  <tr>
-                    <th>id</th>
-                    <th>name</th>
-                  </tr>
-                  <tr>
-                    <td><span>1</span></td>
-                    <td>Summer jams</td>
-                  </tr>
-                  <tr>
-                    <td>2</td>
-                    <td>Songs for crying</td>
-                  </tr>
-                  <tr>
-                    <td>3</td>
-                    <td>Work playlist</td>
-                  </tr>
-                  <tr>
-                    <td>4</td>
-                    <td>Favourite songs</td>
-                  </tr>
-                  <tr>
-                    <td>5</td>
-                    <td>Sappy mixtape</td>
-                  </tr>
-                  </table>
-                </div>
-              </div>
-
-<div class="top">
-              <div class="dbtable ">
-                <p>playlists_tracks</p>
-                <table>
-                <tr>
-                  <th>playlist_id</th>
-                  <th>track_id</th>
-                </tr>
-                <tr>
-                  <td ><span>1</span></td>
-                  <td><span>1</span></td>
-                </tr>
-                <tr>
-                  <td>1</td>
-                  <td><span>2</span></td>
-                </tr>
-                <tr>
-                  <td>2</td>
-                  <td>1</td>
-                </tr>
-                <tr>
-                  <td>2</td>
-                  <td>5</td>
-                </tr>
-                </table>
-              </div>
-
-              <div class="dbtable">
-<p class="hidden">shh</p>
-                <table class="secret_notes">
-                  <tr><th class="hidden">shh</th></tr>
-                  <tr><td class="fragment" data-fragment-index="1"># Moonlight Sonata is on Summer Jams</td></tr>
-                  <tr><td class="fragment" data-fragment-index="1"># London Calling is on Summer Jams</td></tr>
-                  <tr><td class="fragment" data-fragment-index="1"># Moonlight Sonata is on Songs for Crying</td></tr>
-                  <tr><td class="fragment" data-fragment-index="1"># You're My Waterloo is on Songs for Crying</td></tr>
-                </table>
-              </div>
-            </div>
-
-            </section>
-            <section class="playliststrackstables">
-              <h5>Join Tables</h5>
-              <div class="top">
-                <div class="dbtable">
-                  <p>tracks</p>
-                  <table>
-                  <tr>
-                    <th>id</th>
-                    <th>name</th>
-                    <th>genre_id</th>
-                    <th>unit_price</th>
-                    <th>etc...</th>
-                  </tr>
-                  <tr>
-                    <td><span>1</span></td>
-                    <td>Moonlight Sonata</td>
-                    <td>6</td>
-                    <td>0.99</td>
-                    <td>...</td>
-                  </tr>
-                  <tr>
-                    <td><span>2</span></td>
-                    <td>London Calling</td>
-                    <td>2</td>
-                    <td>0.99</td>
-                    <td>...</td>
-                  </tr>
-                  <tr>
-                    <td>3</td>
-                    <td>Formation</td>
-                    <td>1</td>
-                    <td>0.99</td>
-                    <td>...</td>
-                  </tr>
-                  <tr>
-                    <td>4</td>
-                    <td>Where Does the Good Go</td>
-                    <td>3</td>
-                    <td>1.99</td>
-                    <td>...</td>
-                  </tr>
-                  <tr>
-                    <td>5</td>
-                    <td>You're My Waterloo</td>
-                    <td>2</td>
-                    <td>0.99</td>
-                    <td>...</td>
-                  </tr>
-                  </table>
-              </div>
-                <div class="dbtable">
-                  <p>playlists</p>
-                  <table>
-                  <tr>
-                    <th>id</th>
-                    <th>name</th>
-                  </tr>
-                  <tr>
-                    <td><span>1</span></td>
-                    <td>Summer jams</td>
-                  </tr>
-                  <tr>
-                    <td>2</td>
-                    <td>Songs for crying</td>
-                  </tr>
-                  <tr>
-                    <td>3</td>
-                    <td>Work playlist</td>
-                  </tr>
-                  <tr>
-                    <td>4</td>
-                    <td>Favourite songs</td>
-                  </tr>
-                  <tr>
-                    <td>5</td>
-                    <td>Sappy mixtape</td>
-                  </tr>
-                  </table>
-                </div>
-              </div>
-
-<div class="top">
-              <div class="dbtable ">
-                <p>ordered_tracks</p>
-                <table>
-                <tr>
-                  <th>id</th>
-                  <th>playlist_id</th>
-                  <th>track_id</th>
-                  <th>order</th>
-                </tr>
-                <tr>
-                  <td ><span>1</span></td>
-                  <td ><span>1</span></td>
-                  <td><span>1</span></td>
-                  <td><span>9</span></td>
-                </tr>
-                <tr>
-                  <td ><span>2</span></td>
-                  <td>1</td>
-                  <td><span>2</span></td>
-                  <td><span>8</span></td>
-                </tr>
-                <tr>
-                  <td>3</td>
-                  <td>2</td>
-                  <td>1</td>
-                  <td>1</td>
-                </tr>
-                <tr>
-                  <td>4</td>
-                  <td>2</td>
-                  <td>5</td>
-                  <td>4</td>
-                </tr>
-                </table>
-              </div>
-
-              <div class="dbtable">
-<p class="hidden">shh</p>
-                <table class="secret_notes">
-                  <tr><th class="hidden">shh</th></tr>
-                  <tr><td class="fragment" data-fragment-index="1"># Moonlight Sonata is 9th on Summer Jams</td></tr>
-                  <tr><td class="fragment" data-fragment-index="1"># London Calling is 8th on Summer Jams</td></tr>
-                  <tr><td class="fragment" data-fragment-index="1"># Moonlight Sonata is 1st on Songs for Crying</td></tr>
-                  <tr><td class="fragment" data-fragment-index="1"># You're My Waterloo is 4th on Songs for Crying</td></tr>
-                </table>
-              </div>
-            </div>
-
-            </section>
-              <section data-background="#007aff">
-                <div class="dbtable">
-                  <p>students</p>
-                  <table>
-                    <tr>
-                      <th>id</th>
-                      <th>name</th>
-                      <th>email</th>
-                    </tr>
-                    <tr>
-                      <td>...</td>
-                      <td>...</td>
-                      <td>...</td>
-                    </tr>
-                  </table>
-                </div>
-                <div class="dbtable">
-                  <p>cohort_memberships</p>
-                  <table>
-                    <tr>
-                      <th>student_id</th>
-                      <th>cohort_id</th>
-                    </tr>
-                    <tr>
-                      <td>...</td>
-                      <td>...</td>
-                    </tr>
-                  </table>
-                </div>
-                <div class="dbtable">
-                  <p>cohorts</p>
-                  <table>
-                    <tr>
-                      <th>id</th>
-                      <th>name</th>
-                      <th>start_date</th>
-                    </tr>
-                    <tr>
-                      <td>...</td>
-                      <td>...</td>
-                      <td>...</td>
-                    </tr>
-                  </table>
-                </div>
-            </section>
-
-            <section data-background="#007aff">
-                <div class="dbtable">
-                  <p>students</p>
-                  <table>
-                    <tr>
-                      <th>id</th>
-                      <th>name</th>
-                      <th>email</th>
-                    </tr>
-                    <tr>
-                      <td>...</td>
-                      <td>...</td>
-                      <td>...</td>
-                    </tr>
-                  </table>
-                </div>
-                <div class="dbtable">
-                  <p>cohort_memberships</p>
-                  <table>
-                    <tr>
-                      <th>id</th>
-                      <th>student_id</th>
-                      <th>cohort_id</th>
-                      <th>completed</th>
-                    </tr>
-                    <tr>
-                      <td>...</td>
-                      <td>...</td>
-                      <td>...</td>
-                      <td>...</td>
-                    </tr>
-                  </table>
-                </div>
-                <div class="dbtable">
-                  <p>cohorts</p>
-                  <table>
-                    <tr>
-                      <th>id</th>
-                      <th>name</th>
-                      <th>start_date</th>
-                    </tr>
-                    <tr>
-                      <td>...</td>
-                      <td>...</td>
-                      <td>...</td>
-                    </tr>
-                  </table>
-                </div>
-            </section>
-
-        </section>
 
         <section data-background="#007aff">
             <section>
